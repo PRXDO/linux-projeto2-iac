@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo "Atualizando o servidor..."
+
+apt update -y
+
+apt upgrade -y
+
+echo "Instalando apache2..."
+
+apt install apache2 -y 
+
+echo "Instalando unzip..."
+
+apt install unzip -y
+
+echo "Baixando site do github..."
+
+wget  https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
+
+echo "Descompactando site..."
+
+unzip -d /tmp/ main.zip
+
+echo "Copiando arquivos para o diretorio padrao apache"
+
+cp -r  /tmp/linux-site-dio-main/* /var/www/html -v 
+
+echo "Fim"
